@@ -7,13 +7,30 @@
     <PackFolder>build</PackFolder>
     <PackNone>true</PackNone>
     <PackageProjectUrl>https://clarius.org/json</PackageProjectUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetConfig" Version="1.2.0" />
+    <PackageReference Include="DotNetConfig.Configuration" Version="1.2.0" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="all" />
     <PackageReference Include="NuGetizer" Version="0.9.1" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.9.20" Pack="false" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--Hack to get multitargeting nuget package -->
+
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <PackageVersion>0.1.0-alpha.experimental</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BuildMultiTargeting\JsonPeek.props" />
+    <None Remove="BuildMultiTargeting\JsonPeek.targets" />
+    <Content Include="BuildMultiTargeting\JsonPeek.props" PackagePath="buildmultitargeting/" />
+    <Content Include="BuildMultiTargeting\JsonPeek.targets" PackagePath="buildmultitargeting/" />
   </ItemGroup>
 
   <ItemGroup>
