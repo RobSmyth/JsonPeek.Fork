@@ -1,3 +1,5 @@
+*THIS IS A FORK FOR MY OWN EXPERIMENTATION*
+
 ![JSON Icon](assets/img/json.png) JsonPeek and JsonPoke MSBuild Tasks
 ============
 
